@@ -1,0 +1,15 @@
+gcc kvss_server.c -o server
+gcc kvss_client.c -o client
+
+./server
+# mở terminal khác
+./client
+
+KV/1.0 PUT user42 Alice
+KV/1.0 GET user42
+KV/1.0 DEL user42
+KV/1.0 GET user42
+KV/1.0 DEL ghostKey
+KV/1.0 STATS
+KV/1.0 QUIT
+
