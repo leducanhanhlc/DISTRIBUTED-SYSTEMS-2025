@@ -1,0 +1,8 @@
+Interface trong hệ thống phân tán là một phương thức hoặc giao diện cho phép các thành phần khác nhau trong một hệ thống phân tán (như các máy khách và máy chủ) tương tác và giao tiếp với nhau. Giao diện này giúp các ứng dụng hoặc dịch vụ trao đổi dữ liệu, thông tin hoặc yêu cầu, đồng thời cho phép các hệ thống này hiểu và xử lý yêu cầu của nhau mặc dù chúng có thể được triển khai trên các nền tảng phần cứng hoặc phần mềm khác nhau.
+
+Vì sao cần phải có Interface khi triển khai các dịch vụ?
+1. Tương thích và tương tác: Interface giúp các hệ thống khác nền tảng giao tiếp với nhau.
+2. Giảm phức tạp, tăng trừu tượng: Hệ thống chỉ cần biết cách giao tiếp qua giao diện mà không cần hiểu chi tiết nội bộ.
+3. Mở rộng và thay đổi linh hoạt: Dễ dàng thay đổi hoặc thay thế dịch vụ mà không ảnh hưởng đến hệ thống khác.
+4. An ninh và kiểm soát: Interface giúp kiểm soát truy cập và bảo vệ giao tiếp giữa các hệ thống.
+5. Linh hoạt trong triển khai: Giúp triển khai giải pháp thin-client, nơi máy chủ xử lý chính và máy khách chỉ cung cấp giao diện người dùng.
