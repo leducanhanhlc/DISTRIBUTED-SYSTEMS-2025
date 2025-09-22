@@ -1,0 +1,6 @@
+Trong bài lab KVSS, nếu client không tuân thủ quy ước Interface (ví dụ:
+thiếu version KV/1.0), server sẽ phản hồi thế nào?
+
+426 UPGRADE_REQUIRED
+
+Quy định rõ ràng tình huống sai version giúp bảo đảm sự thống nhất, dễ phát hiện lỗi, hỗ trợ nâng cấp giao thức và tránh hiểu nhầm giữa client – server.
