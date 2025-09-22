@@ -1,0 +1,8 @@
+Giả sử có một client viết sai giao thức (gửi KV/1.0 POTT user42
+Alice). Server sẽ xử lý như thế nào? 
+
+400 BAD_REQUEST
+
+Kết quả này thể hiện đặc điểm gì của Interface?
+
+Khi client gửi lệnh sai giao thức (KV/1.0 POTT ...), server phản hồi 400 BAD_REQUEST. Kết quả này thể hiện rằng Interface trong hệ thống phân tán đóng vai trò như một hợp đồng chuẩn giữa client và server. Nhờ có quy định rõ ràng về cú pháp và mã lỗi, hệ thống đảm bảo tính thống nhất, tương thích, và giúp phát hiện – xử lý lỗi một cách minh bạch mà không phá vỡ phiên giao tiếp.
