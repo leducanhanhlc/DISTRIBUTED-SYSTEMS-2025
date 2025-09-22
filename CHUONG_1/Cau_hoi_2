@@ -1,0 +1,14 @@
+Hãy giải thích ý nghĩa của mã trạng thái 201 CREATED, 204 NO_CONTENT và 404 NOT_FOUND trong giao thức KVSS.
+
+201 CREATED
+
+Ý nghĩa: Yêu cầu PUT đã tạo thành công một mục (key) mới trong kho dữ liệu.
+
+204 NO_CONTENT
+
+Ý nghĩa: Thao tác thực hiện thành công nhưng server không gửi nội dung (body) trong phản hồi.
+
+404 NOT_FOUND
+
+Ý nghĩa: Yêu cầu truy xuất/hoặc thao tác lên một tài nguyên không tồn tại — server không tìm thấy key được chỉ định.
+
