@@ -1,0 +1,2 @@
+Nếu chạy chương trình nhiều lần, kết quả cuối cùng của rsc thường nhỏ hơn 3000 (3 luồng × 1000 lần) vì có hiện tượng race condition (nhiều luồng cùng đọc/ghi biến chung mà không có cơ chế đồng bộ).
+

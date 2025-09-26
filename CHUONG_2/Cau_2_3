@@ -1,0 +1,11 @@
+Câu hỏi 1 (ThreadedWorkerWithoutSync):
+
+Vì exploit() chỉ là getRsc() + 1 rồi setRsc(...), nên nhiều luồng có thể đọc cùng một giá trị trước khi cập nhật, dẫn đến mất update.
+
+Do đó, kết quả cuối cùng thường nhỏ hơn 3000 (mỗi luồng gọi 1000 lần, tổng = 3000).
+
+Câu hỏi 2 (ThreadedWorkerWithSync):
+
+Khi thêm synchronized (hoặc sau này là lock), mỗi lần exploit() chỉ có một luồng được phép truy cập.
+
+Vì vậy, kết quả cuối cùng luôn luôn bằng 3000, không bị mất update.
