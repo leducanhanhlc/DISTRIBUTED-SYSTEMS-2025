@@ -1,0 +1,57 @@
+1. Điều gì xảy ra khi chạy chương trình?
+
+Khi chạy nhiều lần, chương trình có thể:
+
+Bị treo (hang): không in ra kết quả a, b nữa, vì các luồng chờ nhau vô hạn.
+
+Hoặc nếu may mắn (scheduler sắp xếp thuận lợi), nó vẫn chạy được và in kết quả.
+
+👉 Hiện tượng này chính là deadlock (bế tắc).
+
+2. Giải thích mã nguồn
+
+Ta có 2 biến chia sẻ a, b và 2 lock lock_a, lock_b.
+Có 2 luồng chạy song song:
+
+Luồng 1 (fun_1):
+
+pthread_mutex_lock(&lock_a); // lock a trước
+pthread_mutex_lock(&lock_b); // rồi lock b
+// critical section
+pthread_mutex_unlock(&lock_a);
+pthread_mutex_unlock(&lock_b);
+
+
+Luồng 2 (fun_2):
+
+pthread_mutex_lock(&lock_b); // lock b trước
+pthread_mutex_lock(&lock_a); // rồi lock a
+// critical section
+pthread_mutex_unlock(&lock_b);
+pthread_mutex_unlock(&lock_a);
+
+Tình huống gây deadlock:
+
+Thread 1 chiếm được lock_a.
+
+Thread 2 chiếm được lock_b.
+
+Thread 1 cố gắng lấy lock_b, nhưng lock_b đang bị giữ bởi Thread 2.
+
+Thread 2 cố gắng lấy lock_a, nhưng lock_a đang bị giữ bởi Thread 1.
+
+👉 Cả 2 luồng đều đứng chờ vô hạn → deadlock.
+
+3. Kết luận
+
+Khi chạy chương trình, đôi khi ta sẽ thấy nó bị treo, không kết thúc → đây chính là deadlock.
+
+Nguyên nhân: hai luồng giữ lock theo thứ tự khác nhau (lock_a → lock_b và lock_b → lock_a).
+
+Đây là ví dụ kinh điển của deadlock do circular wait (một trong bốn điều kiện dẫn tới deadlock: Mutual exclusion, Hold & wait, No preemption, Circular wait).
+
+4. Cách tránh deadlock
+
+Luôn đảm bảo tất cả luồng lock theo cùng một thứ tự (ví dụ luôn lock a trước rồi mới lock b).
+
+Hoặc dùng các kỹ thuật nâng cao như trylock + timeout, deadlock detection, hoặc lock hierarchy.
